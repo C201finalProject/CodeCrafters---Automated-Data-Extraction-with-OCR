@@ -2,12 +2,14 @@
 #include <allheaders.h>
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 int main()
 {
     char* outText;
     fstream outputFile;
+    string imgfile;
 
     // Open the output file
     outputFile.open("output.txt");
@@ -20,8 +22,11 @@ int main()
         exit(1);
     }
 
+    cout << "Enter Image File Path without quotes: ";
+    getline(cin, imgfile);
+
     // Open input image with leptonica library
-    Pix* image = pixRead("C:/Users/blain/OneDrive/Desktop/201/l-pitt-city-dir-artical-web1.jpg");   //Change directory of image
+    Pix* image = pixRead(imgfile.c_str());   //Change directory of image
     api->SetImage(image);
 
     // Get OCR result
