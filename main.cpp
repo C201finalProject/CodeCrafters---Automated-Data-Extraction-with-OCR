@@ -36,21 +36,20 @@ int main()
 
     // Get OCR result
     outText = api->GetUTF8Text();
-    //outputFile << "OCR output: " << endl << outText;  // This is first line of output
 
-    
     // tokenize tesseract "string"
 
-    char* wordToken = strtok_s(outText, " ", &nextData);
+    char* wordToken = strtok_s(outText, "|", &nextData);
     while (wordToken != nullptr)
     {
-        if (wordToken == "\n")
+        if (strstr(wordToken, "\n") != nullptr)
+            //if (wordToken == "\n")       // remove later if not working
         {
             cout << wordToken << endl;
             outputFile << wordToken;
         }
-        else if (wordToken != "|")
-        //else                               // remove later if not working
+        //else if (wordToken != "|")       // remove later if not working
+        else                               
         {
             cout << wordToken << endl;
             outputFile << wordToken;
@@ -58,13 +57,8 @@ int main()
         }
 
         // go to next value
-        wordToken = strtok_s(nullptr, " ", &nextData);
+        wordToken = strtok_s(nullptr, "|", &nextData);
     }
-
-
-
-
-
 
     // Destroy used object and release memory
     api->End();
