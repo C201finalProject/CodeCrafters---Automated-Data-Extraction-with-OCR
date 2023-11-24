@@ -19,9 +19,6 @@ void fixRows()
     inText.ignore();
     getline(inText, line2);
 
-    cout << line1 << endl;  // TODO: remove
-    cout << line2 << endl;  // TODO: remove
-
     // count "," occurrence
     for (i = 0; i < line1.size(); ++i)
     {
@@ -37,8 +34,6 @@ void fixRows()
             ++count2;
         }
     }
-    cout << "count 1 = " << count1 << endl; // TODO: remove later
-    cout << "count 2 = " << count2 << endl; // TODO: remove later
 
     // close file
     inText.close();
@@ -62,7 +57,6 @@ void fixRows()
         oldText.close();
     }   
 }
-
 
 
 int main()
