@@ -3,6 +3,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdio.h>
+
+//#include <>
 using namespace std;
 
 void fixRows()
@@ -45,16 +48,33 @@ void fixRows()
         ifstream oldText("output.csv");
         newText << "; ";
 
+        // append file 1 to file 2
         string line;
-
         while (getline(oldText, line))
         {
             newText << line << endl;
         }
         
         // close files
-        newText.close();
         oldText.close();
+        newText.close();
+
+        // re-open to clear
+        ifstream newText1("output2.csv");
+        ofstream oldText1("output.csv");
+
+        // write file 2 to file 1
+        while (getline(newText1, line))
+        {
+            oldText1 << line << endl;
+        }
+
+        // close files
+        oldText1.close();
+        newText1.close();
+
+        // delete 2nd file
+        remove("output2.csv");
     }   
 }
 
@@ -92,7 +112,6 @@ int main()
         imgfile.erase(imgfile.size() - 1, 1);
     }
 
-
     // Open input image with leptonica library
     Pix* image = pixRead(imgfile.c_str());
     api->SetImage(image);
@@ -121,21 +140,17 @@ int main()
         wordToken = strtok_s(nullptr, " ", &nextData);
     }
 
-
     // Closing the file
     outputFile.close();
 
     // fix if there is an empty header
     fixRows();
 
-
     // Destroy used object and release memory
     api->End();
     delete api;
     delete[] outText;
     pixDestroy(&image);
-
-
 
     return 0;
 }
