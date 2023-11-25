@@ -127,12 +127,10 @@ int main()
         {
             if (strchr(wordToken, '\n') != nullptr)
             {
-                cout << "newline" << endl;  // TODO: emove later
                 outputFile << wordToken;
             }
             else
             {
-                cout << wordToken << endl;  // TODO: remove later
                 outputFile << wordToken;
                 outputFile << "; ";
             }
