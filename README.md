@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This C++ application automates data extraction from scanned images, incorporating image processing, OCR, and Excel integration.
+This C++ application automates data extraction from scanned images, incorporating image processing, OCR, and csv integration.
 
 ### Features
 
@@ -10,8 +10,8 @@ This C++ application automates data extraction from scanned images, incorporatin
   - Load, preprocess, and enhance images.
 - **OCR (Tesseract):**
   - Extract text from processed images.
-- **Excel Integration:**
-  - Generate and populate Excel spreadsheets.
+- **csv Integration:**
+  - Generate and populate csv spreadsheets.
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ This C++ application automates data extraction from scanned images, incorporatin
 1. Load images into the application.
 2. Perform image processing.
 3. Run OCR for text extraction.
-4. Generate and populate Excel files.
+4. Generate and populate csv files.
 
 ### GitHub Operations
 
