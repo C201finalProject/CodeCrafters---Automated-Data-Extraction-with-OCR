@@ -32,6 +32,8 @@ This C++ application automates data extraction from scanned images, incorporatin
 
 3. Build and run the application.
 
+4. Follow the Tesseract Guide Setup
+
 ### Usage
 
 1. Load images into the application.
