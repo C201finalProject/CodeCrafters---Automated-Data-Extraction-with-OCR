@@ -22,13 +22,10 @@
     e. Click OK and restart your computer.
 
 ## Project Setup:
-5. Create a new empty project in your IDE name "testing".
-6. Right-click your project "testing", add a new C++ file, and name it "main.cpp"
-
-## Project Properties:
-7. Right-click main.cpp, go to Property Pages:
+5. Open cloned project "CodeCrafters---Automated-Data-Extraction-with-OCR"
+6. Right-click main.cpp, go to Property Pages:
     a. Change configuration to Release and Platform to x64.
-8. Right-click main.cpp, go to Property Pages, under C/C++ -> General, include additional directories:
+7. Right-click main.cpp, go to Property Pages, under C/C++ -> General, include additional directories:
     a. Additional Include Directories:
         - Click the down arrow on the square to the right, click <Edit...>
         - Find vcpkg installation directory.
@@ -38,13 +35,13 @@
           c:\Users\myname\vcpkg\installed\x64-windows\include\tesseract
 
 ## Linker Configuration:
-9. Right-click "testing"(projecte name) selecte on Properties, go to Linker -> General:
+8. Right-click "testing"(project name) select on Properties, go to Linker -> General:
     a. Additional Library Directories:
         - Click the down arrow on the square to the right, click <Edit...>
         - Find vcpkg installation directory, and add the lib folder:
            c:\Users\myname\vcpkg\installed\x64-windows\lib
 
-11. Right-click "testing"(projecte name) selecte on Properties, go to Linker -> Input:
+9. Right-click "testing"(project name) select on Properties, go to Linker -> Input:
     a. Additional Dependencies:
        - Click the down arrow on the square to the right, click <Edit...>
     b. Add all of these:
@@ -72,43 +69,6 @@ libwebpdemux.lib
 zlib.lib
 zstd.lib
 
-13. Apply changes and go back to `main.cpp`.
+10. Apply changes and go back to `main.cpp`.
+11. Change configuration to Release and x64.
 
-## Testing Tesseract:
-12. Change configuration to Release and x64.
-13. Paste and run the test code in `main.cpp`.
-    - If you encounter DLL errors, save the project and relaunch your IDE.
-   
-#include <baseapi.h>
-#include <allheaders.h>
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    char* outText;
-
-    tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
-
-    // Initialize tesseract-ocr with English, without specifying tessdata path
-    if (api->Init(NULL, "eng")) {
-        fprintf(stderr, "Could not initialize tesseract.\n");
-        exit(1);
-    }
-
-    // Open input image with leptonica library
-    Pix* image = pixRead("C:/Users/blain/OneDrive/Desktop/201/l-pitt-city-dir-artical-web1.jpg");   //Change directory of image
-    api->SetImage(image);
-
-    // Get OCR result
-    outText = api->GetUTF8Text();
-    printf("OCR output:\n%s", outText);     //This is first line of output
-
-    // Destroy used object and release memory
-    api->End();
-    delete api;
-    delete[] outText;
-    pixDestroy(&image);
-
-    return 0;
-}
