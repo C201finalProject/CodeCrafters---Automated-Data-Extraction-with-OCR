@@ -18,7 +18,8 @@ This C++ application automates data extraction from scanned images, incorporatin
 ### Prerequisites
 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
-- Tesseract Setup Guide.md 
+- Tesseract Setup Guide.md
+- Ensure CSV reader (i.e. Excel) is set to delimeter ";"
 
 ### Installation
 
