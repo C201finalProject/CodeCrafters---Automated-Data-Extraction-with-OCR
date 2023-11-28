@@ -5,7 +5,7 @@
 #include <string>
 #include <stdio.h>
 
-//#include <>
+
 using namespace std;
 
 void fixRows()
@@ -78,6 +78,12 @@ void fixRows()
     }   
 }
 
+/*
+function()
+{
+    --do something :D
+}
+*/
 
 int main()
 {
